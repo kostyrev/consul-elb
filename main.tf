@@ -91,9 +91,9 @@ resource "aws_security_group_rule" "allow_all_outbound" {
 # THE CONSUL-SPECIFIC INBOUND/OUTBOUND RULES COME FROM THE CONSUL-SECURITY-GROUP-RULES MODULE
 # ---------------------------------------------------------------------------------------------------------------------
 module "security_group_rules" {
-  source            = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-security-group-rules"
-  security_group_id = "${aws_security_group.consul.id}"
-  cidr_blocks       = ["${var.allowed_inbound_cidr_blocks}"]
+  source                      = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-security-group-rules"
+  security_group_id           = "${aws_security_group.consul.id}"
+  allowed_inbound_cidr_blocks = ["${var.allowed_inbound_cidr_blocks}"]
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
