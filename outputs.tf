@@ -15,5 +15,6 @@ output "load_balancer_security_group_id" {
 }
 
 output "fully_qualified_domain_name" {
-  value = "${aws_route53_record.consul_elb.fqdn}"
+  # Hack datasource error on count = 0
+  value = "${element(concat(aws_route53_record.consul_elb.*.fqdn, list("")), 0)}"
 }
