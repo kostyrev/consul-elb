@@ -84,7 +84,7 @@ variable "health_check_protocol" {
 
 variable "health_check_path" {
   description = "The path to use for health checks. Must return a 200 OK when the service is ready to receive requests from the ELB."
-  default     = "/v1/operator/autopilot/health"
+  default     = "/v1/status/leader"
 }
 
 variable "health_check_interval" {
